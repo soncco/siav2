@@ -1,0 +1,41 @@
+# Portada de la parte de administración.
+backend_portada:
+    pattern:  /
+    defaults: { _controller: BackendBundle:Default:index }
+    
+# Rutas de Administración.
+admin_login:
+    pattern: /login
+    defaults: { _controller: BackendBundle:Default:login }
+
+admin_login_check:
+    pattern: /login_check
+  
+admin_logout:
+    pattern: /logout
+
+# Sistema
+BackendUsuario:
+    resource: "@BackendBundle/Resources/config/routing/usuario.yml"
+    prefix:   /usuario
+    
+# Básico
+BackendFuente:
+    resource: "@BackendBundle/Resources/config/routing/fuente.yml"
+    prefix:   /fuente
+    
+BackendArea:
+    resource: "@BackendBundle/Resources/config/routing/area.yml"
+    prefix:   /area
+    
+BackendProducto:
+    resource: "@BackendBundle/Resources/config/routing/producto.yml"
+    prefix:   /producto
+    
+BackendProyecto:
+    resource: "@BackendBundle/Resources/config/routing/proyecto.yml"
+    prefix:   /proyecto
+
+BackendRequerimiento:
+    resource: "@BackendBundle/Resources/config/routing/req.yml"
+    prefix:   /requerimiento

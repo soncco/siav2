@@ -1,0 +1,30 @@
+backend_proyecto:
+    pattern:  /
+    defaults: { _controller: "BackendBundle:Proyecto:index" }
+
+backend_proyecto_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BackendBundle:Proyecto:show" }
+
+backend_proyecto_new:
+    pattern:  /new
+    defaults: { _controller: "BackendBundle:Proyecto:new" }
+
+backend_proyecto_create:
+    pattern:  /create
+    defaults: { _controller: "BackendBundle:Proyecto:create" }
+    requirements: { _method: post }
+
+backend_proyecto_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BackendBundle:Proyecto:edit" }
+
+backend_proyecto_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BackendBundle:Proyecto:update" }
+    requirements: { _method: post }
+
+backend_proyecto_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BackendBundle:Proyecto:delete" }
+    requirements: { _method: post }

@@ -1,0 +1,30 @@
+backend_fuente:
+    pattern:  /
+    defaults: { _controller: "BackendBundle:Fuente:index" }
+
+backend_fuente_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BackendBundle:Fuente:show" }
+
+backend_fuente_new:
+    pattern:  /new
+    defaults: { _controller: "BackendBundle:Fuente:new" }
+
+backend_fuente_create:
+    pattern:  /create
+    defaults: { _controller: "BackendBundle:Fuente:create" }
+    requirements: { _method: post }
+
+backend_fuente_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BackendBundle:Fuente:edit" }
+
+backend_fuente_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BackendBundle:Fuente:update" }
+    requirements: { _method: post }
+
+backend_fuente_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BackendBundle:Fuente:delete" }
+    requirements: { _method: post }

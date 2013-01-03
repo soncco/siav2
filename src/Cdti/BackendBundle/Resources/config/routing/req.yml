@@ -1,0 +1,30 @@
+backend_req:
+    pattern:  /
+    defaults: { _controller: "BackendBundle:Requerimiento:index" }
+
+backend_req_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BackendBundle:Requerimiento:show" }
+
+backend_req_new:
+    pattern:  /new
+    defaults: { _controller: "BackendBundle:Requerimiento:new" }
+
+backend_req_create:
+    pattern:  /create
+    defaults: { _controller: "BackendBundle:Requerimiento:create" }
+    requirements: { _method: post }
+
+backend_req_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BackendBundle:Requerimiento:edit" }
+
+backend_req_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BackendBundle:Requerimiento:update" }
+    requirements: { _method: post }
+
+backend_req_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BackendBundle:Requerimiento:delete" }
+    requirements: { _method: post }

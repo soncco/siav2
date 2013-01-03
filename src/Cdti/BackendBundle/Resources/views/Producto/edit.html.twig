@@ -1,0 +1,23 @@
+{% extends '::backend.html.twig' %}
+
+{% block id 'producto_edit' %}
+{% block title %}Modificar el producto{% endblock %}
+
+{% block content %}
+<form action="{{ path('backend_producto_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    <div class="input_wrapper">
+    {{ form_label(edit_form.unidad_medida, 'Unidad de medida') }}
+    {{ form_widget(edit_form.unidad_medida) }}
+        
+    {{ form_label(edit_form.descripcion, 'Descripción') }}
+    {{ form_widget(edit_form.descripcion) }}
+    </div>
+    <p>
+        <button class="button_primary button continue" type="submit">Guardar cambios</button>
+    </p>
+    {{ form_rest(edit_form) }}
+</form>
+{% endblock %}
+{% block button_area %}
+<a href="{{ path('backend_producto') }}" class="button"><div class="icon back"></div>Volver al listado</a>
+{% endblock %}

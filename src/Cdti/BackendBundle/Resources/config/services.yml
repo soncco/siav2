@@ -1,0 +1,4 @@
+parameters:
+#    backend.example.class: Cdti\BackendBundle\Example
+
+services:

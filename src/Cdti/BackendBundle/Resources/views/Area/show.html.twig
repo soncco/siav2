@@ -1,0 +1,19 @@
+{% extends '::backend.html.twig' %}
+
+{% block id 'area_show' %}
+{% block title %}Datos del área {{ entity }}{% endblock %}
+
+{% block content %}
+
+<div class="input_wrapper">
+  Nombre: <strong>{{ entity.nombre }}</strong>
+</div>
+
+{% endblock %}
+{% block button_area %}
+<a href="{{ path('backend_area_edit', { 'id': entity.id }) }}" class="button"><div class="icon"></div>Modificar área</a>
+<a href="{{ path('backend_area') }}" class="button"><div class="icon back"></div>Volver al listado</a>
+<a class="button_primary button continue" href="{{ path('backend_area_new') }}">
+  Añadir una nueva área
+</a>
+{% endblock %}

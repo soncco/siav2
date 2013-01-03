@@ -1,0 +1,95 @@
+{% extends '::backend.html.twig' %}
+
+{% block id 'proyecto_new' %}
+{% block title %}Añadir un nuevo proyecto{% endblock %}
+
+{% block content %}
+{{ form_errors(form) }}
+<form action="{{ path('backend_proyecto_create') }}" method="post" {{ form_enctype(form) }}>
+  <div class="input_wrapper">
+    {{ form_label(form.anio, 'Año') }}
+    {{ form_widget(form.anio, {attr : { 'class' : 'choices' }}) }}
+    {{ form_label(form.fuente, 'Fuentes de financiamiento (puedes escoger más de una fuente)') }}<br />
+    {{ form_widget(form.fuente) }}
+  </div>
+    <div class="input_wrapper">
+        
+    {{ form_label(form.sec_func, 'Sec_func') }}
+    {{ form_widget(form.sec_func, { 
+      'attr' : {
+        'class' : 'tiny'
+      }})
+    }}
+    
+    {{ form_label(form.programa) }}
+    {{ form_widget(form.programa, { 
+      'attr' : {
+        'class' : 'tiny'
+      }})
+    }}
+    
+    {{ form_label(form.prod_pry, 'Prod_pry') }}
+    {{ form_widget(form.prod_pry, { 
+      'attr' : {
+        'class' : 'tiny'
+      }})
+    }}
+    
+    {{ form_label(form.act_ai_obra, 'Act_ai_obra') }}
+    {{ form_widget(form.act_ai_obra, { 
+      'attr' : {
+        'class' : 'tiny'
+      }})
+    }}
+    
+    {{ form_label(form.funcion, 'Función') }}
+    {{ form_widget(form.funcion, { 
+      'attr' : {
+        'class' : 'tiny'
+      }})
+    }}
+    
+    {{ form_label(form.division_func, 'Division_func') }}
+    {{ form_widget(form.division_func, { 
+      'attr' : {
+        'class' : 'tiny'
+      }})
+    }}
+    
+    {{ form_label(form.grupo_func, 'Grupo_func') }}
+    {{ form_widget(form.grupo_func, { 
+      'attr' : {
+        'class' : 'tiny'
+      }})
+    }}
+    
+    {{ form_label(form.meta) }}
+    {{ form_widget(form.meta, { 
+      'attr' : {
+        'class' : 'tiny'
+      }})
+    }}
+    
+    {{ form_label(form.finalidad) }}
+    {{ form_widget(form.finalidad, { 
+      'attr' : {
+        'class' : 'tiny'
+      }})
+    }}
+    
+    {{ form_label(form.nombre) }}
+    {{ form_widget(form.nombre, { 
+      'attr' : {
+        'class' : 'big'
+      }})
+    }}
+    </div>
+    <p>
+        <button class="button_primary button continue" type="submit">Añadir proyecto</button>
+    </p>
+    {{ form_rest(form) }}
+</form>
+{% endblock %}
+{% block button_area %}
+<a href="{{ path('backend_proyecto') }}" class="button"><div class="icon back"></div>Volver al listado</a>
+{% endblock %}

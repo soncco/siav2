@@ -1,0 +1,43 @@
+{% extends '::backend.html.twig' %}
+
+{% block id 'proyecto_show' %}
+{% block title %}Datos del proyecto{% endblock %}
+
+{% block content %}
+
+<div class="input_wrapper">
+  Año: <strong>{{ entity.anio }}</strong>
+</div>
+<div class="input_wrapper">
+  <ul>
+  {% for f, fuente in entity.fuentes %}
+      <li>Fuente de financiamiento: <strong>{{ fuente }}</strong></li>
+  {% endfor %}
+  </ul>
+</div>
+<div class="input_wrapper">
+  <ul>
+  {% set nombre = '' %}
+  {% for c, campo in entity.campos %}
+      {% if campo.campo != 'nombre' %}
+      <li>{{ campo.campo }}: <strong>{{ campo.valor }}</strong></li>
+      {% else %}
+      {% set nombre = campo.valor %}
+      {% endif %}
+  {% endfor %}
+  </ul>
+</div>
+<div class="input_wrapper">
+  <ul>
+      <li>Nombre: <strong>{{ nombre }}</strong></li>
+  </ul>
+</div>
+
+{% endblock %}
+{% block button_area %}
+<a href="{{ path('backend_proyecto_edit', { 'id': entity.id }) }}" class="button"><div class="icon"></div>Modificar proyecto</a>
+<a href="{{ path('backend_proyecto') }}" class="button"><div class="icon back"></div>Volver al listado</a>
+<a class="button_primary button continue" href="{{ path('backend_proyecto_new') }}">
+  Añadir una nuevo proyecto
+</a>
+{% endblock %}

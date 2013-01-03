@@ -1,0 +1,24 @@
+{% extends '::backend.html.twig' %}
+
+{% block id 'producto_new' %}
+{% block title %}Añadir un nuevo producto{% endblock %}
+
+{% block content %}
+{{ form_errors(form) }}
+<form action="{{ path('backend_producto_create') }}" method="post" {{ form_enctype(form) }}>
+    <div class="input_wrapper">
+    {{ form_label(form.unidad_medida, 'Unidad de medida') }}
+    {{ form_widget(form.unidad_medida) }}
+        
+    {{ form_label(form.descripcion, 'Descripción') }}
+    {{ form_widget(form.descripcion) }}
+    </div>
+    <p>
+        <button class="button_primary button continue" type="submit">Añadir producto</button>
+    </p>
+    {{ form_rest(form) }}
+</form>
+{% endblock %}
+{% block button_area %}
+<a href="{{ path('backend_producto') }}" class="button"><div class="icon back"></div>Volver al listado</a>
+{% endblock %}

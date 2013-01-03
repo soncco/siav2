@@ -1,0 +1,30 @@
+backend_area:
+    pattern:  /
+    defaults: { _controller: "BackendBundle:Area:index" }
+
+backend_area_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BackendBundle:Area:show" }
+
+backend_area_new:
+    pattern:  /new
+    defaults: { _controller: "BackendBundle:Area:new" }
+
+backend_area_create:
+    pattern:  /create
+    defaults: { _controller: "BackendBundle:Area:create" }
+    requirements: { _method: post }
+
+backend_area_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BackendBundle:Area:edit" }
+
+backend_area_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BackendBundle:Area:update" }
+    requirements: { _method: post }
+
+backend_area_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BackendBundle:Area:delete" }
+    requirements: { _method: post }

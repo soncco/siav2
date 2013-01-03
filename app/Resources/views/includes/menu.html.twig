@@ -1,0 +1,42 @@
+<div class="toolkit">
+  <div class="menu_header">Abastecimiento</div>
+  <a id="dashboard_link" class="link{% if ruta | slice(0,11) == 'backend_req' %} selected{% endif %}" href="{{ path('backend_req') }}">
+  <div class="icon"></div>
+  <div class="text">Requerimientos</div>
+  <div class="highlight_hack"></div>
+  </a>
+</div>
+<!-- .toolkit -->
+<div class="toolkit">
+  <div class="menu_header">Básico</div>
+  <a id="dashboard_link" class="link{% if ruta | slice(0,14) == 'backend_fuente' %} selected{% endif %}" href="{{ path('backend_fuente') }}">
+  <div class="icon"></div>
+  <div class="text">Fuentes</div>
+  <div class="highlight_hack"></div>
+  </a>
+  <a id="dashboard_link" class="link{% if ruta | slice(0,12) == 'backend_area' %} selected{% endif %}" href="{{ path('backend_area') }}">
+  <div class="icon"></div>
+  <div class="text">Áreas</div>
+  <div class="highlight_hack"></div>
+  </a>
+  <a id="dashboard_link" class="link{% if ruta | slice(0,16) == 'backend_proyecto' %} selected{% endif %}" href="{{ path('backend_proyecto') }}">
+  <div class="icon"></div>
+  <div class="text">Proyectos</div>
+  <div class="highlight_hack"></div>
+  </a>
+</div>
+<!-- .toolkit -->
+<div class="toolkit">
+  <div class="menu_header">Sistema</div>
+  <a id="dashboard_link" class="link{% if ruta | slice(0,16) == 'backend_producto' %} selected{% endif %}" href="{{ path('backend_producto') }}">
+  <div class="icon"></div>
+  <div class="text">Productos</div>
+  <div class="highlight_hack"></div>
+  </a>
+  <a id="dashboard_link" class="link{% if ruta | slice(0,15) == 'backend_usuario' %} selected{% endif %}" href="{{ path('backend_usuario') }}">
+  <div class="icon"></div>
+  <div class="text">Usuarios</div>
+  <div class="highlight_hack"></div>
+  </a>
+</div>
+<!-- .toolkit -->

@@ -1,0 +1,46 @@
+{% extends '::backend.html.twig' %}
+
+{% block id 'usuario' %}
+{% block title %}Listado de usuarios{% endblock %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Usuario</th>
+            <th>Email</th>
+            <th>Tipo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <th>{{ entity.nombres }}</th>
+            <th>{{ entity.usuario }}</th>
+            <th>{{ entity.email }}</th>
+            <th>
+              {% if entity.tipo == 'A' %}
+                Administrador
+              {% else %}
+                Operador
+              {% endif %}
+            </th>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('backend_usuario_edit', { 'id': entity.id }) }}">Modificar</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+{% block button_area %}
+<a class="button_primary button continue" href="{{ path('backend_usuario_new') }}">
+  Añadir un nuevo usuario
+</a>
+{% endblock %}

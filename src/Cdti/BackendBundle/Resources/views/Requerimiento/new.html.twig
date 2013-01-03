@@ -1,0 +1,22 @@
+{% extends '::backend.html.twig' %}
+
+{% block id 'req_new' %}
+{% block title %}Crear un requerimiento{% endblock %}
+
+{% block content %}
+{{ form_errors(form) }}
+<form action="{{ path('backend_req_create') }}" method="post" {{ form_enctype(form) }}>
+    <div class="input_wrapper">
+    {{ form_row(form.numero) }}
+    {{ form_row(form.fecha) }}
+    {{ form_row(form.glosa) }}
+    </div>
+    <p>
+        <button class="button_primary button continue" type="submit">Crear requerimiento</button>
+    </p>
+    {{ form_rest(form) }}
+</form>
+{% endblock %}
+{% block button_req %}
+<a href="{{ path('backend_req') }}" class="button"><div class="icon back"></div>Volver al listado</a>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends '::base.html.twig' %}
+{% set ruta = app.request.attributes.get('_route') %}
+{% block stylesheets %}
+<link href="{{ asset('bundles/backend/css/base.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('bundles/backend/css/panel.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('bundles/backend/css/content.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="{{ asset('bundles/backend/js/jquery.dropkick.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/backend/js/main.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+{% block body %}
+<div id="menu">
+  {% include ':includes:menu.html.twig' %}
+</div>
+<div id="report_content">
+  <div id="messages" style="display: none;">
+    {% include ':includes:flashes.html.twig' %}
+  </div>
+  <div id="padding_wrapper">
+    <div id="teaching"></div>
+    <div id="content">
+      <header id="content-header">
+        <h1>{% block title %}{% endblock %}</h1>
+      </header>
+      <div id="content-inner">
+      {% block content %}{% endblock %}
+      </div>
+      <div id="button_area">
+      {% block button_area %}{% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
