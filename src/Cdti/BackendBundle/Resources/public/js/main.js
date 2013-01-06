@@ -23,15 +23,5 @@ $(document).ready(function() {
   $('#messages .close_button').click(function (){
     $('#messages').slideToggle('fast');
   });
-  
-  // DatePicker.
-  /*
-  $('[data-date-format]').each(function() {
-    $(this).datepicker({
-      numberOfMonths: 1,
-      dateFormat: $(this).attr('data-date-format'),
-      showButtonPanel: true
-    });
-  }); */
 
 });

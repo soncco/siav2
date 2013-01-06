@@ -3,7 +3,8 @@
 namespace Cdti\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Requerimiento
  *
@@ -50,8 +51,12 @@ class Requerimiento
      * })
      */
     private $usuario;
-
-
+    
+    protected $detalles;
+    
+    public function __construct() {
+      $this->detalles = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -153,5 +158,15 @@ class Requerimiento
     public function getUsuario()
     {
         return $this->usuario;
+    }
+    
+    public function getDetalles()
+    {
+        return $this->detalles;
+    }
+
+    public function setDetalles(ArrayCollection $detalles = null)
+    {
+        $this->detalles = $detalles;
     }
 }

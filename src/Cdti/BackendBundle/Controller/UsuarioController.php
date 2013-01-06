@@ -151,7 +151,7 @@ class UsuarioController extends Controller
         }
         
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new UsuarioEditType(), $entity);
+        $editForm = $this->createForm(new UsuarioType(), $entity);
 
         $originalPassword = $editForm->getData()->getPassword();
 

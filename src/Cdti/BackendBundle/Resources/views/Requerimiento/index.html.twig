@@ -1,7 +1,7 @@
 {% extends '::backend.html.twig' %}
 
-{% block id 'area' %}
-{% block title %}Listado de áreas{% endblock %}
+{% block id 'requerimiento' %}
+{% block title %}Listado de requerimientos{% endblock %}
 
 {% block content %}
 <table>
@@ -18,7 +18,7 @@
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('backend_area_edit', { 'id': entity.id }) }}">Modificar</a>
+                        <a href="{{ path('backend_req_edit', { 'id': entity.id }) }}">Modificar</a>
                     </li>
                 </ul>
             </td>
@@ -28,7 +28,7 @@
 </table>
 {% endblock %}
 {% block button_area %}
-<a class="button_primary button continue" href="{{ path('backend_area_new') }}">
-  Añadir una nueva área
+<a class="button_primary button continue" href="{{ path('backend_req_new') }}">
+  Añadir un nuevo requerimiento
 </a>
 {% endblock %}

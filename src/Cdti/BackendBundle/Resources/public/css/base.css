@@ -740,3 +740,19 @@ table tbody th {
 table tbody th {
   background: #eaeaea;
 }
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}

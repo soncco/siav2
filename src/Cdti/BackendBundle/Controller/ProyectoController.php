@@ -226,7 +226,11 @@ class ProyectoController extends Controller
                 'campo' => $key
               ));
               
-              print gettype($proyectoCampo);
+              if (is_null($proyectoCampo)) {
+                $proyectoCampo = new ProyectoCampo();
+                $proyectoCampo->setProyecto($entity);
+                $proyectoCampo->setCampo($key);
+              }
               
               $proyectoCampo->setValor($valor);
 

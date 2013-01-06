@@ -28,3 +28,11 @@ backend_producto_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "BackendBundle:Producto:delete" }
     requirements: { _method: post }
+
+backend_producto_json:
+    pattern:  /searchJSON/
+    defaults: { _controller: "BackendBundle:Producto:searchJSON" }
+
+_backend_producto_json:
+    pattern:  /searchJSON/{keyword}
+    defaults: { _controller: "BackendBundle:Producto:searchJSON" }

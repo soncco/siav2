@@ -1,10 +1,10 @@
 {% extends '::backend.html.twig' %}
 
 {% block id 'area_edit' %}
-{% block title %}Modificar el área {{ entity }}{% endblock %}
+{% block title %}Modificar el requerimiento{% endblock %}
 
 {% block content %}
-<form action="{{ path('backend_area_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+<form action="{{ path('backend_req_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     <div class="input_wrapper">
     {{ form_row(edit_form.nombre) }}
     </div>
@@ -15,5 +15,5 @@
 </form>
 {% endblock %}
 {% block button_area %}
-<a href="{{ path('backend_area') }}" class="button"><div class="icon back"></div>Volver al listado</a>
+<a href="{{ path('backend_req') }}" class="button"><div class="icon back"></div>Volver al listado</a>
 {% endblock %}

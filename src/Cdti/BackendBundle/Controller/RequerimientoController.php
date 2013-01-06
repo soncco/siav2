@@ -5,6 +5,7 @@ namespace Cdti\BackendBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Cdti\BackendBundle\Entity\Requerimiento;
+use Cdti\BackendBundle\Entity\RequerimientoDetalle;
 use Cdti\BackendBundle\Form\RequerimientoType;
 
 /**
@@ -53,11 +54,16 @@ class RequerimientoController extends Controller
      */
     public function newAction()
     {
-        $entity = new Requerimiento();
-        $form   = $this->createForm(new RequerimientoType(), $entity);
+        $req = new Requerimiento();
+        
+        $detalle = new RequerimientoDetalle();
+        $detalle->setRequerimiento($req);
+        $req->getDetalles()->add($detalle);
+        
+        $form   = $this->createForm(new RequerimientoType(), $req);
 
         return $this->render('BackendBundle:Requerimiento:new.html.twig', array(
-            'entity' => $entity,
+            'entity' => $req,
             'form'   => $form->createView()
         ));
     }
@@ -75,6 +81,11 @@ class RequerimientoController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getEntityManager();
+            
+            $usuario = $this->get('security.context')->getToken()->getUser();
+            
+            $entity->setUsuario($usuario);
+            
             $em->persist($entity);
             $em->flush();
             

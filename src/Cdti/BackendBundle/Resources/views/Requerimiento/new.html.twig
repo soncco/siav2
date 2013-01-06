@@ -1,8 +1,22 @@
 {% extends '::backend.html.twig' %}
 
+{% set prototype = "&lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;cdti_backendbundle_reqtype_detalles___name___cantidad&quot; name=&quot;cdti_backendbundle_reqtype[detalles][__name__][cantidad]&quot; required=&quot;required&quot; class=&quot;tiny&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;cdti_backendbundle_reqtype_detalles___name___producto_descripcion&quot; name=&quot;cdti_backendbundle_reqtype[detalles][__name__][producto][descripcion]&quot; required=&quot;required&quot; class=&quot;autocomplete big ui-autocomplete-input&quot; autocomplete=&quot;off&quot;&gt;
+&lt;span role=&quot;status&quot; aria-live=&quot;polite&quot; class=&quot;ui-helper-hidden-accessible&quot;&gt;&lt;/span&gt;
+&lt;input type=&quot;hidden&quot; id=&quot;cdti_backendbundle_reqtype_detalles___name___producto_id&quot; name=&quot;cdti_backendbundle_reqtype[detalles][__name__][producto][id]&quot;&gt;&lt;/td&gt;" %}
+
 {% block id 'req_new' %}
 {% block title %}Crear un requerimiento{% endblock %}
-
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('bundles/backend/js/jquery-ui-1.9.2.custom.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('bundles/backend/js/ac.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('bundles/backend/js/items.js') }}" type="text/javascript"></script>
+{% endblock %}
+{% block stylesheets %}
+  {{ parent() }}
+  <link href="{{ asset('bundles/backend/css/redmond/jquery-ui-1.9.2.custom.min.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
 {% block content %}
 {{ form_errors(form) }}
 <form action="{{ path('backend_req_create') }}" method="post" {{ form_enctype(form) }}>
@@ -11,6 +25,26 @@
     {{ form_row(form.fecha) }}
     {{ form_row(form.glosa) }}
     </div>
+    <h3>Detalles del Requerimiento</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Cantidad</th>
+          <th>Producto</th>
+        </tr>
+      </thead>
+      <tbody class="detalles" data-prototype="{{ prototype | raw }}">
+      {% for detalle in form.detalles %}
+          <tr>
+              <td>{{ form_widget(detalle.cantidad) }}</td>
+              <td>
+              {{ form_widget(detalle.producto.descripcion) }}
+              {{ form_widget(detalle.producto.pid) }}
+              </td>
+          </tr>
+      {% endfor %}
+      </tbody>
+  </table>
     <p>
         <button class="button_primary button continue" type="submit">Crear requerimiento</button>
     </p>

@@ -22,11 +22,11 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Ideup\SimplePaginatorBundle\IdeupSimplePaginatorBundle(),
             new Cdti\BackendBundle\BackendBundle(),
-            new Sonata\jQueryBundle\SonatajQueryBundle(),
+            /*new Sonata\jQueryBundle\SonatajQueryBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),*/
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

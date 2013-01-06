@@ -4,6 +4,7 @@ namespace Cdti\BackendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Cdti\BackendBundle\Entity\Producto;
 use Cdti\BackendBundle\Form\ProductoType;
 
@@ -149,5 +150,31 @@ class ProductoController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
         ));
+    }
+    
+    /**
+     * Respuesta para el autocompletar.
+     */
+    public function searchJSONAction($keyword = null) {
+      $em = $this->getDoctrine()->getEntityManager();
+      $results = $em->getRepository('BackendBundle:Producto')->searchProducto($keyword);
+
+      $arrayJSON = array();
+
+      foreach($results as $k => $result) {
+        $row = array();
+        $row['id'] = $result->getId();
+        $row['value'] = $result->getUnidadMedida() . " de " . $result->getDescripcion();
+        $row['label'] = $result->getUnidadMedida() . " de " . $result->getDescripcion();
+        $arrayJSON[] = $row;
+      }
+
+      $response = new Response();
+
+      $response->setContent(json_encode($arrayJSON));
+
+      $response->headers->set('Content-Type', 'application/json');
+
+      return $response;
     }
 }

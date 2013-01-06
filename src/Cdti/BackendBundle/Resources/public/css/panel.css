@@ -1334,6 +1334,9 @@ input[type="text"], input[type="password"], input[type="email"], textarea {
 	-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
 	box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05)
 }
+textarea {
+  width: auto !important;
+}
 input[type="text"] :-moz-placeholder, input[type="password"] :-moz-placeholder, input[type="email"] :-moz-placeholder, textarea :-moz-placeholder {
 color:#878d98
 }
@@ -2531,3 +2534,6 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3cd1ce', endCo
 }
 
 /***** End Critical to the continued enjoyment of working dropdowns ******/
+.ui-autocomplete-loading {
+  background: white url('../images/ajax/ajax-loader-small.gif') right center no-repeat;
+}

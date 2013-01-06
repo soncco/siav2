@@ -28,3 +28,8 @@ backend_area_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "BackendBundle:Area:delete" }
     requirements: { _method: post }
+    
+backend_area_print:
+    pattern:  /{id}/print
+    defaults: { _controller: "BackendBundle:Area:print" }
+    requirements: { _method: post }

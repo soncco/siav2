@@ -12,19 +12,31 @@ class RequerimientoType extends AbstractType
     {
         $builder
             ->add('numero')
-            ->add('fecha', 'your_date',
-                    array(
-                        'widget' => 'single_text',
-                        )
-                  )
-            ->add('glosa')
+            ->add('fecha', 'date', array(
+                'years' => range(date('Y'), date('Y')),
+                'data' => date_create()
+            ))
+            ->add('glosa', null, array(
+                'attr' => 
+                  array(
+                      'cols' => 80,
+                      'rows' => 6,
+                )))
+            //->add('detalles', 'collection', array('type' => new RequerimientoDetalleType()))
+            ->add('detalles', 'collection', array(
+                'type' => new RequerimientoDetalleType(),
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+            ))
         ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Cdti\BackendBundle\Entity\Requerimiento'
+            'data_class' => 'Cdti\BackendBundle\Entity\Requerimiento',
+            'cascade_validation' => true
         ));
     }
 

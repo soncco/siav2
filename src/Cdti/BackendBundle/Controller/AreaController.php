@@ -150,4 +150,11 @@ class AreaController extends Controller
             'edit_form'   => $editForm->createView(),
         ));
     }
+    
+    public function printAction($id) {
+      $em = $this->getDoctrine()->getEntityManager();
+      $entity = $em->getRepository('BackendBundle:Area')->find($id);
+      
+      return true;
+    }
 }
